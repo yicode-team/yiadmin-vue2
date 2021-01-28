@@ -1,6 +1,5 @@
-# yipack-template
+# yiadmin
 
 #### 介绍
-易打包-基于vue.js+webpack封装的单页应用开发脚手架
 
-
+易管理-基于 yipack-cli + element-ui 封装的开箱即用的后台管理项目
