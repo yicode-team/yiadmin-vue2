@@ -35,22 +35,27 @@ export default {
         },
         // 登录
         api_login() {
-            this.$Api({
-                url: '/user/login',
-                method: 'post',
-                params: {
-                    username: this.formData.username,
-                    password: this.formData.password
-                }
-            })
-                .then((res) => {
-                    console.log('res==');
-                    console.log(res);
+            return new Promise((resolve, reject) => {
+                this.$Api({
+                    url: '/admin/login',
+                    params: {
+                        username: this.formData.username,
+                        password: this.formData.password
+                    }
                 })
-                .catch((err) => {
-                    console.log('err==');
-                    console.log(err);
-                });
+                    .then((res) => {
+                        this.$message({ message: res.msg, type: 'success' });
+                        this.$Basil.set('token', res.data.token);
+                        this.$Basil.set('loginData', res.data.loginData);
+                        this.$router.replace('/');
+                        resolve(res);
+                    })
+                    .catch((err) => {
+                        console.log('err==');
+                        console.log(err);
+                        reject(err);
+                    });
+            });
         }
     }
 };

@@ -24,7 +24,7 @@ Vue.mixin({
         };
     },
     computed: {
-        ...Vuex.mapState(['globalData'])
+        ...Vuex.mapState(['globalData', 'token', 'loginData'])
     },
     methods: {
         // 通用突变

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import _default from 'vuex';
 import Vuex from 'vuex';
+import $Basil from '@src/plugins/basil.js';
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -8,7 +9,9 @@ const store = new Vuex.Store({
         globalData: {
             // 侧滑面板宽度
             drawerSize: '400px'
-        }
+        },
+        token: $Basil.get('token') || '',
+        loginData: $Basil.get('loginData') || {}
     },
     mutations: {
         /**

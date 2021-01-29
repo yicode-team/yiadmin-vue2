@@ -2,13 +2,26 @@
     <div class="layout-header">
         <div class="left">YiPack通用管理后台</div>
         <div class="center flex-center"></div>
-        <div class="right"></div>
+        <div class="right">
+            <div class="avatar" :style="{ backgroundImage: 'url(' + require('@src/assets/images/favicon.png') + ')' }"></div>
+            <div class="nickname">{{ loginData.nickname || loginData.username }}</div>
+            <div class="exit" @click="on_exit">
+                <div class="box"></div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'LayoutHeader'
+    name: 'LayoutHeader',
+    created() {},
+    methods: {
+        on_exit() {
+            this.$Basil.reset();
+            this.$router.replace('/login');
+        }
+    }
 };
 </script>
 
@@ -40,7 +53,36 @@ export default {
         font-size: 18px;
     }
     .right {
+        display: flex;
+        align-items: center;
+        color: #fff;
         flex: 0 0 $layout-header-height;
+        .avatar {
+            height: $layout-header-height - 20px;
+            width: $layout-header-height - 20px;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+        .nickname {
+            margin-right: 10px;
+        }
+        .exit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f0f0;
+            height: 24px;
+            width: 24px;
+            border: 2px solid #5aaaff;
+            cursor: pointer;
+            border-radius: 50%;
+            .box {
+                height: 6px;
+                width: 6px;
+                border-radius: 50%;
+                background-color: #e86666;
+            }
+        }
     }
 }
 </style>
