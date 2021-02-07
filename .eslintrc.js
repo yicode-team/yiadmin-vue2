@@ -15,6 +15,7 @@ module.exports = {
     rules: {
         'no-unused-vars': 'off',
         'no-var': 'warn',
-        eqeqeq: 'warn'
+        eqeqeq: 'warn',
+        'vue/no-v-html': 'off'
     }
 };
