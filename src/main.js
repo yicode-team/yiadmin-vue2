@@ -10,6 +10,8 @@ import Vue from 'vue';
 import router from '@src/router/index.js';
 // 全局存储
 import vuex from '@src/vuex/index.js';
+// 国际化
+import i18n from '@src/lang/index.js';
 // 插件导入
 import '@src/plugins/index.js';
 // 异步请求
@@ -26,5 +28,6 @@ import App from '@src/App.vue';
 let vm = new Vue({
     router: router,
     store: vuex,
+    i18n: i18n,
     render: (h) => h(App)
 }).$mount('#app');

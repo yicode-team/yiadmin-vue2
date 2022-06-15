@@ -29,7 +29,11 @@ let router = new VueRouter({
 // 全局前置守卫
 router.beforeEach((to, from, next) => {
     // 此处写全局前置守卫逻辑
-    next();
+    if (to.matched.length === 0) {
+        next('/404');
+    } else {
+        next();
+    }
 });
 
 // 全局后置守卫

@@ -1,5 +1,7 @@
 <template>
-    <div class="page-index page-full"></div>
+    <div class="page-index page-full">
+        {{ $t('name') }}
+    </div>
 </template>
 
 <script>
